@@ -4,6 +4,7 @@
 #include "MQTT/MQTT.h"
 #include "SparkJson/SparkJson.h"
 
+#define version 101
 /*
  * This is a minimal example, see extra-examples.cpp for a version
  * with more explantory documentation, example routines, how to 
@@ -35,10 +36,17 @@
   
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
+#define HBLED D7                // Blinking HeartBeat LED
+#define ERRFLASHTIME 125        // How fast do I blink when error
+#define HBFLASHTIME 1000        // How fast do I blink normally
+#define RGBLEDRELASETIME 3500   // 3.5s to release control of RBG LED
+
 // IMPORTANT: Set pixel COUNT, PIN and TYPE
 #define PIXEL_PIN D2
 #define PIXEL_COUNT 60
 #define PIXEL_TYPE WS2812B
+
+#define RECONNECT 10000          // Try reconnect every 10s
 
 void callback(char* topic, byte* payload, unsigned int length);
 
@@ -47,11 +55,12 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(PIXEL_COUNT, PIXEL_PIN, PIXEL_TYPE);
 // JSON Parser
 
 // MQTT client("stoy.iostation.com", 1883, callback);
-byte server[] = { 10,0,1,252 };
+byte server[] = { 10,0,1,250 };
 MQTT client(server, 1883, callback);
 
 // timers
-int ledTimer;
+unsigned int ledTimer, hbTimer, lastConnect;
+bool blink;
 
 // received command
 char cmd[8];
@@ -183,6 +192,8 @@ void setup()
     delay(500);
     WiFi.connect();
     delay(500);
+    pinMode(HBLED, OUTPUT);
+    
     Serial1.begin(9600);
     strip.begin();
     strip.show(); // Initialize all pixels to 'off'
@@ -208,10 +219,20 @@ void loop()
     char cMAC[20];
     const char *cSSID;
     char cTime[10];
+    bool connected;
 
     // Gather sensor data
-    if (client.isConnected())
+    if (client.isConnected()) {
         client.loop();
+        connected = true;
+    } else {
+        connected = false;
+        if (millis() - lastConnect > RECONNECT) {
+            // connect to the server
+            client.connect("Light");
+            lastConnect = millis();
+        }
+    }
 
     // Gather system info
     IPAddress ipa = WiFi.localIP();
@@ -231,9 +252,18 @@ void loop()
     sendToLCD(1, "t5", String(cRSSI));
 
 //  rainbow(20);
-    if (millis() - ledTimer > 3500) {
+    if (millis() - ledTimer > RGBLEDRELASETIME) {
         ledTimer = millis();
         RGB.control(false);
+    }
+    if (millis() - hbTimer > (connected?HBFLASHTIME:ERRFLASHTIME)) {
+        hbTimer = millis();
+        blink = !blink;
+        if (blink) {
+            digitalWrite(HBLED, HIGH);
+        } else {
+            digitalWrite(HBLED, LOW);
+        }
     }
 }
 
