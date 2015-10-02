@@ -1,4 +1,4 @@
-dofile('config_livingroom.lua')		-- import configurations
+dofile('config.lua')		-- import configurations
 gpio.mode(PIN_Motion, gpio.INT)
 gpio.mode(PIN_Sound, gpio.INT)
 -- gpio.mode(PIN_Alarm, gpio.INT, gpio.PULLUP)
