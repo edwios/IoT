@@ -1,7 +1,7 @@
+dofile('config.lua')		-- import configurations
+
 local m_dis={}
 local connected = false
-local MQTTClientName = "NodeMCU01"
-local sleep_time = 600 * 1000 * 1000
 
 local function dispatch(m,t,pl)
 	if pl~=nil and m_dis[t] then
@@ -29,7 +29,7 @@ print("Setup wifi mode: STATION")
 wifi.setmode(wifi.STATION)
 local cnt = 0
 --please config ssid and password according to settings of your wireless router.
-wifi.sta.config("BSSID0","UNAME0")
+wifi.sta.config(BSSID0,WPA2PW)
 wifi.sta.connect()
 
 -- init mqtt client with keepalive timer 120sec
@@ -62,7 +62,7 @@ local function doInit()
 	-- Lua: mqtt:connect( host, port, secure, auto_reconnect, function(client) )
 	-- for secure: m:connect("10.0.1.252", 1880, 1)
 	print("Connecting to MQTT broker")
-	m:connect("10.0.1.250", 1883, 0, 1)
+	m:connect(MQTTBroker, MQTTPort, 0, 1)
 end
 
 
@@ -123,13 +123,13 @@ tmr.alarm(1, 1000, 1, function()
     	cnt = cnt + 1
     	if (cnt == 6) then 
 --please config ssid and password according to settings of your wireless router.	    		
-    		wifi.sta.config("BSSID1","UNAME1")
+    		wifi.sta.config(BSSID1,WPA2PW)
     		--WRITE YOU PROGRAM HERE
     	end	
 
     	if (cnt == 12) then 
 --please config ssid and password according to settings of your wireless router.	    		
-    		wifi.sta.config("BSSID2","UNANE2")
+    		wifi.sta.config(BSSID2,WPA2PW2)
     		--WRITE YOU PROGRAM HERE
     	end	 	    	  
     else 
@@ -138,6 +138,7 @@ tmr.alarm(1, 1000, 1, function()
     		--WRITE YOU PROGRAM HERE
     		doInit()
     	else print("Wifi setup time more than 20 times, Please verify wifi.sta.config() function. Then re-download the file.")
+    		node.dsleep(sleep_time, 0)  -- sleep anyway, hope waking up to a better WiFi
     	end
     end 
  end)

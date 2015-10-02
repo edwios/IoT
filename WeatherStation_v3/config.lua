@@ -1,0 +1,9 @@
+MQTTClientName = "NodeMCU01"
+MQTTBroker="10.0.1.250"
+MQTTPort=1883
+sleep_time = 600 * 1000 * 1000
+BSSID0="WiFiName"
+BSSID1="WiFiName"
+WPA2PW="WiFiPassword"
+BSSID2="WiFiName"
+WPA2PW2="WiFiPassword"
