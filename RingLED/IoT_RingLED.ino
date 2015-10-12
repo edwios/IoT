@@ -231,6 +231,10 @@ void loop()
             // connect to the server
             client.connect("Light");
             lastConnect = millis();
+            if (client.isConnected()) {
+                client.publish("/sensornet/status","ready");
+                client.subscribe("/sensornet/command/color");
+            } 
         }
     }
 
