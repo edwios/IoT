@@ -28,6 +28,9 @@
 #define PIXEL_COUNT 144
 #define PIXEL_TYPE WS2812B
 
+#define FAST 125
+#define SLOW 500
+
 void callback(char* topic, byte* payload, unsigned int length);
 
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(PIXEL_COUNT, PIXEL_PIN, PIXEL_TYPE);
@@ -36,8 +39,12 @@ byte server[] = { 10,0,1,250 };
 MQTT client(server, 1883, callback);
 
 // timers
-int ledTimer;
+unsigned long ledTimer, d7Timer;
 unsigned long lastConnect;
+int d7Rate = 250;
+
+// flags
+bool d7On = false;
 
 // received command
 char cmd[8];
@@ -184,6 +191,7 @@ void setMqtt()
         client.publish("sensornet/status/MagicLight-Spark","ready");
         client.subscribe("sensornet/MagicLight-Spark/#");
         RGB.control(false);
+        d7Rate = SLOW;
     }
 
 }
@@ -194,6 +202,7 @@ void setup()
 {
     Time.zone(+8);
     pinMode(D7,OUTPUT);
+    d7Rate = SLOW;
 #ifdef SEMI_AUTOMATIC
     WiFi.on();
     digitalWrite(D7,HIGH);
@@ -227,11 +236,12 @@ void loop()
     } else {
         RGB.control(true);
         RGB.color(255,0,0);
+        d7Rate = FAST;
         ledTimer = millis();
         if (millis() - lastConnect > RECONNECT) {
+            lastConnect = millis();
             // connect to the server
             client.connect(CLIENT_NAME);
-            lastConnect = millis();
             if (client.isConnected()) {
                 setMqtt();
             } 
@@ -241,5 +251,17 @@ void loop()
     if (millis() - ledTimer > 3500) {
         ledTimer = millis();
         RGB.control(false);
+        d7Rate = SLOW;
+    }
+    
+    // Flash D7 according to the statue (controlled by d7Rate)
+    if (millis() - d7Timer > d7Rate) {
+        d7Timer = millis();
+        if (d7On) {
+            digitalWrite(D7,LOW);
+        } else {
+            digitalWrite(D7,HIGH);
+        }
+        d7On = !d7On;
     }
 }
