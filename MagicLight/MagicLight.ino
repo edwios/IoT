@@ -21,7 +21,7 @@
 
 
 #define CLIENT_NAME "MagicLight-Spark"
-#define RECONNECT 5*1000
+#define RECONNECT 10*1000
 
 // IMPORTANT: Set pixel COUNT, PIN and TYPE
 #define PIXEL_PIN D0
@@ -240,6 +240,17 @@ void loop()
         ledTimer = millis();
         if (millis() - lastConnect > RECONNECT) {
             lastConnect = millis();
+            RGB.color(80,0,0);
+            WiFi.off();
+            digitalWrite(D7, HIGH);
+            delay(1000);
+            WiFi.on();
+            RGB.color(255,255,0);
+            delay(500);
+            WiFi.connect();
+            RGB.color(255,0,0);
+            delay(500);
+            digitalWrite(D7,LOW);
             // connect to the server
             client.connect(CLIENT_NAME);
             if (client.isConnected()) {
