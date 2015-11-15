@@ -21,7 +21,7 @@
 
 
 #define CLIENT_NAME "MagicLight-Spark"
-#define RECONNECT 10*1000
+#define RECONNECT 15*1000
 
 // IMPORTANT: Set pixel COUNT, PIN and TYPE
 #define PIXEL_PIN D0
@@ -35,6 +35,7 @@ void callback(char* topic, byte* payload, unsigned int length);
 
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(PIXEL_COUNT, PIXEL_PIN, PIXEL_TYPE);
 
+//byte server[] = { 10,175,151,107 };
 byte server[] = { 10,0,1,250 };
 MQTT client(server, 1883, callback);
 
@@ -45,6 +46,7 @@ int d7Rate = 250;
 
 // flags
 bool d7On = false;
+bool init = true;
 
 // received command
 char cmd[8];
@@ -190,7 +192,9 @@ void setMqtt()
     if (client.isConnected()) {
         client.publish("sensornet/status/MagicLight-Spark","ready");
         client.subscribe("sensornet/MagicLight-Spark/#");
-        RGB.control(false);
+        RGB.control(true);
+        RGB.color(0,255,0);
+        ledTimer = millis();
         d7Rate = SLOW;
     }
 
@@ -212,16 +216,12 @@ void setup()
     delay(500);
     digitalWrite(D7,HIGH);
 #endif
+#ifdef HMILCD
     Serial1.begin(9600);
+#endif
     strip.begin();
     strip.show(); // Initialize all pixels to 'off'
-    // connect to the server
-    client.connect(CLIENT_NAME);
-
-    // publish/subscribe
-    setMqtt();
-    delay(200);
-    colorAll(30,30,30);
+    colorAll(80,80,30);
     digitalWrite(D7,LOW);
 }
 
@@ -231,38 +231,21 @@ void setup()
 void loop()
 {
     // Maintain connection
-    if (client.isConnected()) {
-        client.loop();
-    } else {
-        RGB.control(true);
-        RGB.color(255,0,0);
-        d7Rate = FAST;
-        ledTimer = millis();
-        if (millis() - lastConnect > RECONNECT) {
-            lastConnect = millis();
-            RGB.color(80,0,0);
-            WiFi.off();
-            digitalWrite(D7, HIGH);
-            delay(1000);
-            WiFi.on();
-            RGB.color(255,255,0);
-            delay(500);
-            WiFi.connect();
-            RGB.color(255,0,0);
-            delay(500);
-            digitalWrite(D7,LOW);
-            // connect to the server
-            client.connect(CLIENT_NAME);
-            if (client.isConnected()) {
-                setMqtt();
-            } 
-        }
-    }
 
     if (millis() - ledTimer > 3500) {
         ledTimer = millis();
         RGB.control(false);
         d7Rate = SLOW;
+    }
+    
+    if (WiFi.ready() && init) {
+        // connect to the server
+        client.connect(CLIENT_NAME);
+        delay(500);
+        // publish/subscribe
+        setMqtt();
+        delay(200);
+        init = false;
     }
     
     // Flash D7 according to the statue (controlled by d7Rate)
@@ -274,5 +257,34 @@ void loop()
             digitalWrite(D7,HIGH);
         }
         d7On = !d7On;
+
+        if (client.isConnected()) {
+            client.loop();
+        } else if (WiFi.ready()) {
+            RGB.control(true);
+            RGB.color(255,0,0);
+            d7Rate = FAST;
+            ledTimer = millis();
+            if (millis() - lastConnect > RECONNECT) {
+                lastConnect = millis();
+
+                RGB.color(40,0,0);
+                WiFi.off();
+                digitalWrite(D7, HIGH);
+                delay(1000);
+                WiFi.on();
+                RGB.color(255,255,0);
+                delay(500);
+                WiFi.connect();
+                RGB.color(0,0,255);
+                delay(500);
+                digitalWrite(D7,LOW);
+                init = true;
+            }
+        } else {
+            RGB.control(true);
+            RGB.color(255,0,255);
+            ledTimer = millis();
+        }
     }
 }
