@@ -5,12 +5,12 @@ Version 3
 Weather station based on the new SI7021 Temperature and Humidity sensor and ESP8266 running NodeMCU firmware.
 Incorporated also the function to monitor the brightness of the environment, as well as motion (by means of a PIR motion sensor) and sound detection by means of a sound sensor.
 
-mw.lua subscribes to the following two topics in MQTT:
-sensornet/command/arm, and
+mw.lua subscribes to the following two topics in MQTT:<br/>
+sensornet/command/arm, and<br/>
 sensornet/command/disarm
 
-The topic "sensornet/command/arm" will arm the motion alarm.
-And the topic "sensornet/command/disarm" will disarm it.
+The topic "sensornet/command/arm" will arm the motion alarm.<br/>
+And the topic "sensornet/command/disarm" will disarm it.<br/>
 When the motion alarm is armed, any motion detected will trigger a MQTT message with topic of "$BASE_TOPIC/alarm/motion".
 
 ### New with version 3.1 ###
@@ -21,8 +21,8 @@ mw_l.lua also has the support for SI7021, motion and sound monitoring features r
 
 ### Instructions ###
 
-Update the settings in config.lua
-Upload all lua files to the ESP8266
-Test by using dofile('mw.lua')
+Update the settings in config.lua<br/>
+Upload all lua files to the ESP8266<br/>
+Test by using dofile('mw.lua')<br/>
 If everything is ok, remove the wire between D2 and Gnd. This wire prevents the execution of init.lua which is the autorun on the NodeMCU. If this wire is removed. upon every restart of the NodeMCU, mw.lua will be executed automatically.
 
