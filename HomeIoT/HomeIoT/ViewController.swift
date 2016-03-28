@@ -9,10 +9,18 @@
 import UIKit
 import CoreData
 var myDevices = [NSManagedObject]()
+var selectedIndexPath: NSIndexPath?
+var selectedDeviceName: String!
+var selectedDeviceIP: String!
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    
+
+    @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue) {
+        
+    }
+
     let SegueManageDevices = "ManageDevices"
+    let SegueDeviceDetailsViewController = "DeviceDetails"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,18 +80,27 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return cell
     }
     
+    
     // MARK: - UICollectionViewDelegate protocol
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         // handle tap events
         let device = myDevices[indexPath.item]
-        let deviceName = device.valueForKey("name") as! String
-        let deviceIP = device.valueForKey("ipaddr") as! String
+        selectedIndexPath = indexPath
+        selectedDeviceName = device.valueForKey("name") as? String
+        selectedDeviceIP = device.valueForKey("ipaddr") as? String
         print("You selected cell #\(indexPath.item)!")
-        print("Device \(deviceName) has IP of \(deviceIP)")
+        print("Device \(selectedDeviceName) has IP of \(selectedDeviceIP)")
+        performSegueWithIdentifier(SegueDeviceDetailsViewController, sender: self)
     }
     
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == SegueDeviceDetailsViewController {
+                let destinationViewController = segue.destinationViewController as! DeviceDetailsViewController
+                destinationViewController.deviceName = selectedDeviceName
+                destinationViewController.deviceIP = selectedDeviceIP
+        }
+    }
 
 }
 
