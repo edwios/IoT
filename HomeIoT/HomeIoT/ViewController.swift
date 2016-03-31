@@ -15,6 +15,7 @@ var selectedDeviceIP: String!
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    @IBOutlet weak var table: UICollectionView!
     @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue) {
         
     }
@@ -25,11 +26,15 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        print("Main view did load")
     }
 
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        print("Main view will load")
+        self.table.reloadData()
+        self.table.setNeedsDisplay()
     }
     
     func getDevices() {
@@ -75,7 +80,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let device = myDevices[indexPath.item]
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
         cell.deviceName.text = device.valueForKey("name") as? String
-        cell.backgroundColor = UIColor.yellowColor() // make cell more visible in our example project
+//        cell.backgroundColor = UIColor.lightGrayColor() // make cell more visible in our example project
         
         return cell
     }

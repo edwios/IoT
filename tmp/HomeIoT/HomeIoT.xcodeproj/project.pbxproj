@@ -1,0 +1,308 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AE13ECDE1CA819270044A5FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13ECDD1CA819270044A5FB /* AppDelegate.swift */; };
+		AE13ECE01CA819270044A5FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13ECDF1CA819270044A5FB /* ViewController.swift */; };
+		AE13ECE31CA819270044A5FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE13ECE11CA819270044A5FB /* Main.storyboard */; };
+		AE13ECE61CA819270044A5FB /* HomeIoT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE13ECE41CA819270044A5FB /* HomeIoT.xcdatamodeld */; };
+		AE13ECE81CA819270044A5FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE13ECE71CA819270044A5FB /* Assets.xcassets */; };
+		AE13ECEB1CA819270044A5FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE13ECE91CA819270044A5FB /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AE13ECDA1CA819270044A5FB /* HomeIoT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeIoT.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE13ECDD1CA819270044A5FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AE13ECDF1CA819270044A5FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AE13ECE21CA819270044A5FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AE13ECE51CA819270044A5FB /* HomeIoT.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HomeIoT.xcdatamodel; sourceTree = "<group>"; };
+		AE13ECE71CA819270044A5FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AE13ECEA1CA819270044A5FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AE13ECEC1CA819270044A5FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AE13ECD71CA819270044A5FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AE13ECD11CA819270044A5FB = {
+			isa = PBXGroup;
+			children = (
+				AE13ECDC1CA819270044A5FB /* HomeIoT */,
+				AE13ECDB1CA819270044A5FB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AE13ECDB1CA819270044A5FB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AE13ECDA1CA819270044A5FB /* HomeIoT.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AE13ECDC1CA819270044A5FB /* HomeIoT */ = {
+			isa = PBXGroup;
+			children = (
+				AE13ECDD1CA819270044A5FB /* AppDelegate.swift */,
+				AE13ECDF1CA819270044A5FB /* ViewController.swift */,
+				AE13ECE11CA819270044A5FB /* Main.storyboard */,
+				AE13ECE71CA819270044A5FB /* Assets.xcassets */,
+				AE13ECE91CA819270044A5FB /* LaunchScreen.storyboard */,
+				AE13ECEC1CA819270044A5FB /* Info.plist */,
+				AE13ECE41CA819270044A5FB /* HomeIoT.xcdatamodeld */,
+			);
+			path = HomeIoT;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AE13ECD91CA819270044A5FB /* HomeIoT */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE13ECEF1CA819270044A5FB /* Build configuration list for PBXNativeTarget "HomeIoT" */;
+			buildPhases = (
+				AE13ECD61CA819270044A5FB /* Sources */,
+				AE13ECD71CA819270044A5FB /* Frameworks */,
+				AE13ECD81CA819270044A5FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HomeIoT;
+			productName = HomeIoT;
+			productReference = AE13ECDA1CA819270044A5FB /* HomeIoT.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AE13ECD21CA819270044A5FB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Edwin Tam";
+				TargetAttributes = {
+					AE13ECD91CA819270044A5FB = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = AE13ECD51CA819270044A5FB /* Build configuration list for PBXProject "HomeIoT" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AE13ECD11CA819270044A5FB;
+			productRefGroup = AE13ECDB1CA819270044A5FB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AE13ECD91CA819270044A5FB /* HomeIoT */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AE13ECD81CA819270044A5FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE13ECEB1CA819270044A5FB /* LaunchScreen.storyboard in Resources */,
+				AE13ECE81CA819270044A5FB /* Assets.xcassets in Resources */,
+				AE13ECE31CA819270044A5FB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AE13ECD61CA819270044A5FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE13ECE01CA819270044A5FB /* ViewController.swift in Sources */,
+				AE13ECE61CA819270044A5FB /* HomeIoT.xcdatamodeld in Sources */,
+				AE13ECDE1CA819270044A5FB /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AE13ECE11CA819270044A5FB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE13ECE21CA819270044A5FB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AE13ECE91CA819270044A5FB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE13ECEA1CA819270044A5FB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AE13ECED1CA819270044A5FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AE13ECEE1CA819270044A5FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AE13ECF01CA819270044A5FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HomeIoT/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.iostation.HomeIoT;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AE13ECF11CA819270044A5FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HomeIoT/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.iostation.HomeIoT;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AE13ECD51CA819270044A5FB /* Build configuration list for PBXProject "HomeIoT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE13ECED1CA819270044A5FB /* Debug */,
+				AE13ECEE1CA819270044A5FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE13ECEF1CA819270044A5FB /* Build configuration list for PBXNativeTarget "HomeIoT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE13ECF01CA819270044A5FB /* Debug */,
+				AE13ECF11CA819270044A5FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AE13ECE41CA819270044A5FB /* HomeIoT.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AE13ECE51CA819270044A5FB /* HomeIoT.xcdatamodel */,
+			);
+			currentVersion = AE13ECE51CA819270044A5FB /* HomeIoT.xcdatamodel */;
+			path = HomeIoT.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = AE13ECD21CA819270044A5FB /* Project object */;
+}
