@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GaugeKit
 
 /* flow
 
@@ -38,7 +39,7 @@ class DeviceDetailsViewController: UIViewController {
     @IBOutlet weak var uiDeviceName: UILabel!
     @IBOutlet weak var uiDeviceIP: UILabel!
     @IBOutlet weak var uiPower: UILabel!
-    @IBOutlet weak var uiPowerBar: UISlider!
+    @IBOutlet var uiPowerBar: Gauge!
     @IBOutlet weak var uiLEDSwitch: UISwitch!
     @IBOutlet weak var uiUSBSwitch: UISwitch!
     @IBOutlet weak var uiRelaySwitch: UISwitch!
@@ -55,7 +56,7 @@ class DeviceDetailsViewController: UIViewController {
         self.usbQuery(uiUSBSwitch)
         self.ledQuery(uiLEDSwitch)
         self.powerQuery(uiPowerBar)
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        self.startTimer()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -70,13 +71,17 @@ class DeviceDetailsViewController: UIViewController {
         self.powerQuery(uiPowerBar)
     }
     
+    func startTimer() {
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+    }
     
     // ******* ///
     func performPost(sender: AnyObject, url: String, withBody postString: String, handler: (sender: AnyObject, NSData, (sender: AnyObject, status: Int)->())-> (), callBack: (sender: AnyObject, status: Int)->()) {
         let request = NSMutableURLRequest(URL: NSURL(string: url)!)
         request.HTTPMethod = "POST"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+        print("HTTP POST")
+        let task: NSURLSessionDataTask! = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
             guard error == nil && data != nil else {                                                          // check for fundamental networking error
                 print("error=\(error)")
                 return
@@ -85,12 +90,29 @@ class DeviceDetailsViewController: UIViewController {
             if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 print("response = \(response)")
+                self.timer.invalidate()
+                self.timer = nil
+                let alert = UIAlertController(title: "Error",
+                                              message: "Error communicating with device",
+                                              preferredStyle: .Alert)
+                let okAction = UIAlertAction(title: "OK",
+                                                 style: .Default) { (action: UIAlertAction) -> Void in
+                }
+                alert.addAction(okAction)
+                
+                self.presentViewController(alert,
+                                      animated: true,
+                                      completion: nil)
+
+            } else {
+//              let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                if ((self.timer) == nil) {
+                    self.startTimer()
+                }
+                handler(sender: sender, data!, callBack)
             }
-            
-//            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-            handler(sender: sender, data!, callBack)
         }
-        task.resume()
+        task!.resume()
     }
     
     func getSessionID(sender: AnyObject, callBack: (sender: AnyObject, status: Int) -> ()) {
@@ -160,7 +182,7 @@ class DeviceDetailsViewController: UIViewController {
                 if (s.characters.contains(" ")) {
                     // this is a power ouput
                     let powerValues = s.componentsSeparatedByString(" ")
-                    let powerValue = powerValues[1]
+                    let powerValue = powerValues[0]
                     let powerf = Float(powerValue) ?? 0.0
                     status = Int(powerf*100)
                 } else {
@@ -349,11 +371,12 @@ class DeviceDetailsViewController: UIViewController {
     }
     
     func powerQueryStatusHandler(sender: AnyObject, status: Int) {
-        let whoever = sender as! UISlider
+        let whoever = sender as! Gauge
         if (status != -1) {
             dispatch_async(dispatch_get_main_queue()) {
-                let v: Float = Float(status)/100.0
-                whoever.setValue(v, animated: true)
+                let v = CGFloat(status)/100.0
+//                whoever.setValue(v, animated: true)
+                whoever.rate = v
                 self.uiPower.text = String(v)
                 whoever.setNeedsDisplay()
             }

@@ -1,0 +1,31 @@
+curl -d '{ "jsonrpc": "2.0", "id": 1, "method": "call", "params": [ "00000000000000000000000000000000", "session", "login", { "username": "root", "password": "Akihabara"  } ] }' http://10.0.1.246/ubus
+
+OK:
+{"jsonrpc":"2.0","id":1,"result":[0,{"ubus_rpc_session":"9c984df556a2f605ac49895a656a4260","timeout":300,"expires":299,"acls":{"access-group":{"lesssuperuser":["read","write"],"superuser":["read","write"],"unauthenticated":["read"]},"ubus":{"*":["*"],"file":["*"],"log":["*"],"service":["*"],"session":["access","login"]},"uci":{"*":["read","write"]}},"data":{"username":"root"}}]}
+
+
+curl -d '{ "jsonrpc": "2.0", "id": 1, "method": "call", "params": [ "ae9e5a5ea3cfd220c7a814317e637a6e", "file", "read", { "path": "/sys/class/leds/i-konke:green:usb/brightness", "data":"1" } ] }'  http://10.0.1.246/ubus
+
+OK:
+{"jsonrpc":"2.0","id":1,"result":[0,{"data":"1\n"}]}
+
+
+curl -d '{ "jsonrpc": "2.0", "id": 1, "method": "call", "params": [ "ae9e5a5ea3cfd220c7a814317e637a6e", "file", "write", { "path": "/sys/class/leds/i-konke:green:usb/brightness", "data":"1" } ] }'  http://10.0.1.246/ubus
+
+OK:
+{"jsonrpc":"2.0","id":1,"result":[2]}
+Error:
+{"jsonrpc":"2.0","id":1,"result":[4]}
+
+curl -d '{ "jsonrpc": "2.0", "id": 1, "method": "call", "params": [ "5c9e905cfa0236eacba90125b534c869", "file", "read", { "path": "/tmp/power", "data":"1" } ] }'  http://10.0.1.246/ubus
+
+OK:
+{"jsonrpc":"2.0","id":1,"result":[0,{"data":"3.97 9.18 0.04\n"}]}
+
+Error:
+{"jsonrpc":"2.0","id":1,"result":[4]}
+
+
+
+api.ikonke.com
+kankun-smartplug.com

@@ -10,6 +10,6 @@ import Foundation
 import UIKit
 class ViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var deviceName: UILabel!
+    @IBOutlet weak var deviceName: UITextField!
     @IBOutlet weak var deviceIP: UILabel!
 }

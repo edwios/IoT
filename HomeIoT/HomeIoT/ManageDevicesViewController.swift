@@ -12,7 +12,7 @@ import CoreData
 
 var devices = [NSManagedObject]()
 
-class ManageDevicesViewController: UITableViewController {
+class ManageDevicesViewController: UITableViewController, UIGestureRecognizerDelegate {
     
     let CellIdentifier = "tablecell"
     let SegueManageDevices = "ManageDevices"
@@ -53,6 +53,63 @@ class ManageDevicesViewController: UITableViewController {
 
     }
 
+    /* 長押しした際に呼ばれるメソッド */
+    func cellLongPressed(recognizer: UILongPressGestureRecognizer) {
+        
+        // 押された位置でcellのPathを取得
+        let point = recognizer.locationInView(tableView)
+        let indexPath = tableView.indexPathForRowAtPoint(point)
+        
+        if indexPath == nil {
+            
+        } else if recognizer.state == UIGestureRecognizerState.Began  {
+            // 長押しされた場合の処理
+            print("長押しされたcellのindexPath:\(indexPath?.row)")
+            self.editDevice(recognizer, indexPath: indexPath!)
+        }
+    }
+
+    func editDevice(sender: AnyObject, indexPath: NSIndexPath) {
+        print("Edit device")
+        let device = devices[indexPath.row]
+        let dName = device.valueForKey("name") as? String
+        let dIP = (device.valueForKey("ipaddr") as? String)!
+        let alert = UIAlertController(title: "Edit Device",
+                                      message: "Edit a new device",
+                                      preferredStyle: .Alert)
+        
+        let saveAction = UIAlertAction(title: "Save",
+                                       style: .Default,
+                                       handler: { (action:UIAlertAction) -> Void in
+                                        
+                                        let textField = alert.textFields!.first
+                                        let textField2 = alert.textFields![1]
+                                        self.updateDevice(device, oldname: dName!, name: textField!.text!, ipaddr: textField2.text!)
+                                        self.tableView.reloadData()
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .Default) { (action: UIAlertAction) -> Void in
+        }
+        
+        alert.addTextFieldWithConfigurationHandler {
+            (textField: UITextField) -> Void in
+            textField.text = dName
+            textField.selectAll(self)
+        }
+        alert.addTextFieldWithConfigurationHandler {
+            (textField: UITextField) -> Void in
+            textField.text = dIP
+        }
+        
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
+        presentViewController(alert,
+                              animated: true,
+                              completion: nil)
+    }
+
     func saveDevice(name: String, ipaddr: String) {
         let appDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         let managedContext: NSManagedObjectContext = appDelegate.managedObjectContext
@@ -78,11 +135,46 @@ class ManageDevicesViewController: UITableViewController {
 
     }
     
+    func updateDevice(device: NSManagedObject, oldname: String, name: String, ipaddr: String) {
+        let appDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+        let managedContext: NSManagedObjectContext = appDelegate.managedObjectContext
+        
+//        let entity =  NSEntityDescription.entityForName("Device",
+//                                                        inManagedObjectContext:managedContext)
+        
+        let predicate = NSPredicate(format: "name == %@", oldname)
+        let fetchRequest = NSFetchRequest(entityName: "Device")
+        fetchRequest.predicate = predicate
+        do {
+            let results =
+                try managedContext.executeFetchRequest(fetchRequest)
+            let filteredDevices = results as! [NSManagedObject]
+            print("Filtered \(filteredDevices.count)")
+            filteredDevices.first?.setValue(name, forKey: "name")
+            filteredDevices.first?.setValue(ipaddr, forKey: "ipaddr")
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+        
+        do {
+            try managedContext.save()
+            
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "\"Device List\""
         tableView.registerClass(UITableViewCell.self,
             forCellReuseIdentifier: CellIdentifier)
+        let lpgr = UILongPressGestureRecognizer(target: self, action: #selector(ManageDevicesViewController.cellLongPressed(_:)))
+        lpgr.minimumPressDuration = 0.5
+        lpgr.delaysTouchesBegan = true
+        lpgr.delegate = self
+        self.tableView.addGestureRecognizer(lpgr)
     }
     
     override func viewWillAppear(animated: Bool) {

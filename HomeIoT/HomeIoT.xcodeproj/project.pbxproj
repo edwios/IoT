@@ -1,617 +1,1476 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		AE13EC6B1CA77D9D0044A5FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13EC6A1CA77D9D0044A5FB /* AppDelegate.swift */; };
-		AE13EC6D1CA77D9D0044A5FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13EC6C1CA77D9D0044A5FB /* ViewController.swift */; };
-		AE13EC701CA77D9D0044A5FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE13EC6E1CA77D9D0044A5FB /* Main.storyboard */; };
-		AE13EC721CA77D9D0044A5FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE13EC711CA77D9D0044A5FB /* Assets.xcassets */; };
-		AE13EC751CA77D9D0044A5FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE13EC731CA77D9D0044A5FB /* LaunchScreen.storyboard */; };
-		AE13EC7A1CA77D9D0044A5FB /* HomeIoT WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = AE13EC791CA77D9D0044A5FB /* HomeIoT WatchKit App.app */; };
-		AE13EC801CA77D9D0044A5FB /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE13EC7E1CA77D9D0044A5FB /* Interface.storyboard */; };
-		AE13EC821CA77D9D0044A5FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE13EC811CA77D9D0044A5FB /* Assets.xcassets */; };
-		AE13EC891CA77D9D0044A5FB /* HomeIoT WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AE13EC881CA77D9D0044A5FB /* HomeIoT WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		AE13EC901CA77D9D0044A5FB /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13EC8F1CA77D9D0044A5FB /* InterfaceController.swift */; };
-		AE13EC921CA77D9D0044A5FB /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13EC911CA77D9D0044A5FB /* ExtensionDelegate.swift */; };
-		AE13EC941CA77D9D0044A5FB /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13EC931CA77D9D0044A5FB /* NotificationController.swift */; };
-		AE13EC961CA77D9D0044A5FB /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13EC951CA77D9D0044A5FB /* GlanceController.swift */; };
-		AE13EC981CA77D9D0044A5FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE13EC971CA77D9D0044A5FB /* Assets.xcassets */; };
-		AE13ECA81CA781210044A5FB /* ViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13ECA71CA781210044A5FB /* ViewCell.swift */; };
-		AE13ECAA1CA78A560044A5FB /* ManageDevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13ECA91CA78A560044A5FB /* ManageDevicesViewController.swift */; };
-		AE13ECAD1CA79BDA0044A5FB /* HomeIoT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE13ECAB1CA79BDA0044A5FB /* HomeIoT.xcdatamodeld */; };
-		AE13ECAF1CA813990044A5FB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE13ECAE1CA813990044A5FB /* CoreData.framework */; };
-		AE13ECF31CA97A170044A5FB /* DeviceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13ECF21CA97A170044A5FB /* DeviceDetailsViewController.swift */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		AE13EC7B1CA77D9D0044A5FB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AE13EC5F1CA77D9D0044A5FB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AE13EC781CA77D9D0044A5FB;
-			remoteInfo = "HomeIoT WatchKit App";
-		};
-		AE13EC8A1CA77D9D0044A5FB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AE13EC5F1CA77D9D0044A5FB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AE13EC871CA77D9D0044A5FB;
-			remoteInfo = "HomeIoT WatchKit Extension";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		AE13EC9F1CA77D9D0044A5FB /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				AE13EC891CA77D9D0044A5FB /* HomeIoT WatchKit Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AE13ECA31CA77D9D0044A5FB /* Embed Watch Content */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
-			dstSubfolderSpec = 16;
-			files = (
-				AE13EC7A1CA77D9D0044A5FB /* HomeIoT WatchKit App.app in Embed Watch Content */,
-			);
-			name = "Embed Watch Content";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
-/* Begin PBXFileReference section */
-		AE13EC671CA77D9D0044A5FB /* HomeIoT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeIoT.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE13EC6A1CA77D9D0044A5FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AE13EC6C1CA77D9D0044A5FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AE13EC6F1CA77D9D0044A5FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		AE13EC711CA77D9D0044A5FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AE13EC741CA77D9D0044A5FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		AE13EC761CA77D9D0044A5FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE13EC791CA77D9D0044A5FB /* HomeIoT WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HomeIoT WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE13EC7F1CA77D9D0044A5FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		AE13EC811CA77D9D0044A5FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AE13EC831CA77D9D0044A5FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE13EC881CA77D9D0044A5FB /* HomeIoT WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HomeIoT WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE13EC8E1CA77D9D0044A5FB /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		AE13EC8F1CA77D9D0044A5FB /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		AE13EC911CA77D9D0044A5FB /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
-		AE13EC931CA77D9D0044A5FB /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		AE13EC951CA77D9D0044A5FB /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
-		AE13EC971CA77D9D0044A5FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AE13EC991CA77D9D0044A5FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE13ECA71CA781210044A5FB /* ViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCell.swift; sourceTree = "<group>"; };
-		AE13ECA91CA78A560044A5FB /* ManageDevicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageDevicesViewController.swift; sourceTree = "<group>"; };
-		AE13ECAC1CA79BDA0044A5FB /* HomeIoT.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HomeIoT.xcdatamodel; sourceTree = "<group>"; };
-		AE13ECAE1CA813990044A5FB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		AE13ECF21CA97A170044A5FB /* DeviceDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceDetailsViewController.swift; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		AE13EC641CA77D9D0044A5FB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AE13ECAF1CA813990044A5FB /* CoreData.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AE13EC851CA77D9D0044A5FB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		AE13EC5E1CA77D9D0044A5FB = {
-			isa = PBXGroup;
-			children = (
-				AE13ECAE1CA813990044A5FB /* CoreData.framework */,
-				AE13EC691CA77D9D0044A5FB /* HomeIoT */,
-				AE13EC7D1CA77D9D0044A5FB /* HomeIoT WatchKit App */,
-				AE13EC8C1CA77D9D0044A5FB /* HomeIoT WatchKit Extension */,
-				AE13EC681CA77D9D0044A5FB /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		AE13EC681CA77D9D0044A5FB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AE13EC671CA77D9D0044A5FB /* HomeIoT.app */,
-				AE13EC791CA77D9D0044A5FB /* HomeIoT WatchKit App.app */,
-				AE13EC881CA77D9D0044A5FB /* HomeIoT WatchKit Extension.appex */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		AE13EC691CA77D9D0044A5FB /* HomeIoT */ = {
-			isa = PBXGroup;
-			children = (
-				AE13EC6A1CA77D9D0044A5FB /* AppDelegate.swift */,
-				AE13EC6C1CA77D9D0044A5FB /* ViewController.swift */,
-				AE13ECA91CA78A560044A5FB /* ManageDevicesViewController.swift */,
-				AE13ECF21CA97A170044A5FB /* DeviceDetailsViewController.swift */,
-				AE13ECA71CA781210044A5FB /* ViewCell.swift */,
-				AE13EC6E1CA77D9D0044A5FB /* Main.storyboard */,
-				AE13EC711CA77D9D0044A5FB /* Assets.xcassets */,
-				AE13EC731CA77D9D0044A5FB /* LaunchScreen.storyboard */,
-				AE13EC761CA77D9D0044A5FB /* Info.plist */,
-				AE13ECAB1CA79BDA0044A5FB /* HomeIoT.xcdatamodeld */,
-			);
-			path = HomeIoT;
-			sourceTree = "<group>";
-		};
-		AE13EC7D1CA77D9D0044A5FB /* HomeIoT WatchKit App */ = {
-			isa = PBXGroup;
-			children = (
-				AE13EC7E1CA77D9D0044A5FB /* Interface.storyboard */,
-				AE13EC811CA77D9D0044A5FB /* Assets.xcassets */,
-				AE13EC831CA77D9D0044A5FB /* Info.plist */,
-			);
-			path = "HomeIoT WatchKit App";
-			sourceTree = "<group>";
-		};
-		AE13EC8C1CA77D9D0044A5FB /* HomeIoT WatchKit Extension */ = {
-			isa = PBXGroup;
-			children = (
-				AE13EC8F1CA77D9D0044A5FB /* InterfaceController.swift */,
-				AE13EC911CA77D9D0044A5FB /* ExtensionDelegate.swift */,
-				AE13EC931CA77D9D0044A5FB /* NotificationController.swift */,
-				AE13EC951CA77D9D0044A5FB /* GlanceController.swift */,
-				AE13EC971CA77D9D0044A5FB /* Assets.xcassets */,
-				AE13EC991CA77D9D0044A5FB /* Info.plist */,
-				AE13EC8D1CA77D9D0044A5FB /* Supporting Files */,
-			);
-			path = "HomeIoT WatchKit Extension";
-			sourceTree = "<group>";
-		};
-		AE13EC8D1CA77D9D0044A5FB /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				AE13EC8E1CA77D9D0044A5FB /* PushNotificationPayload.apns */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		AE13EC661CA77D9D0044A5FB /* HomeIoT */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AE13ECA41CA77D9D0044A5FB /* Build configuration list for PBXNativeTarget "HomeIoT" */;
-			buildPhases = (
-				AE13EC631CA77D9D0044A5FB /* Sources */,
-				AE13EC641CA77D9D0044A5FB /* Frameworks */,
-				AE13EC651CA77D9D0044A5FB /* Resources */,
-				AE13ECA31CA77D9D0044A5FB /* Embed Watch Content */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				AE13EC7C1CA77D9D0044A5FB /* PBXTargetDependency */,
-			);
-			name = HomeIoT;
-			productName = HomeIoT;
-			productReference = AE13EC671CA77D9D0044A5FB /* HomeIoT.app */;
-			productType = "com.apple.product-type.application";
-		};
-		AE13EC781CA77D9D0044A5FB /* HomeIoT WatchKit App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AE13ECA01CA77D9D0044A5FB /* Build configuration list for PBXNativeTarget "HomeIoT WatchKit App" */;
-			buildPhases = (
-				AE13EC771CA77D9D0044A5FB /* Resources */,
-				AE13EC9F1CA77D9D0044A5FB /* Embed App Extensions */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				AE13EC8B1CA77D9D0044A5FB /* PBXTargetDependency */,
-			);
-			name = "HomeIoT WatchKit App";
-			productName = "HomeIoT WatchKit App";
-			productReference = AE13EC791CA77D9D0044A5FB /* HomeIoT WatchKit App.app */;
-			productType = "com.apple.product-type.application.watchapp2";
-		};
-		AE13EC871CA77D9D0044A5FB /* HomeIoT WatchKit Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AE13EC9C1CA77D9D0044A5FB /* Build configuration list for PBXNativeTarget "HomeIoT WatchKit Extension" */;
-			buildPhases = (
-				AE13EC841CA77D9D0044A5FB /* Sources */,
-				AE13EC851CA77D9D0044A5FB /* Frameworks */,
-				AE13EC861CA77D9D0044A5FB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "HomeIoT WatchKit Extension";
-			productName = "HomeIoT WatchKit Extension";
-			productReference = AE13EC881CA77D9D0044A5FB /* HomeIoT WatchKit Extension.appex */;
-			productType = "com.apple.product-type.watchkit2-extension";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		AE13EC5F1CA77D9D0044A5FB /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
-				ORGANIZATIONNAME = "Edwin Tam";
-				TargetAttributes = {
-					AE13EC661CA77D9D0044A5FB = {
-						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 5B9QVGHR4W;
-					};
-					AE13EC781CA77D9D0044A5FB = {
-						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 5B9QVGHR4W;
-					};
-					AE13EC871CA77D9D0044A5FB = {
-						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 5B9QVGHR4W;
-					};
-				};
-			};
-			buildConfigurationList = AE13EC621CA77D9D0044A5FB /* Build configuration list for PBXProject "HomeIoT" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = AE13EC5E1CA77D9D0044A5FB;
-			productRefGroup = AE13EC681CA77D9D0044A5FB /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				AE13EC661CA77D9D0044A5FB /* HomeIoT */,
-				AE13EC781CA77D9D0044A5FB /* HomeIoT WatchKit App */,
-				AE13EC871CA77D9D0044A5FB /* HomeIoT WatchKit Extension */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		AE13EC651CA77D9D0044A5FB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AE13EC751CA77D9D0044A5FB /* LaunchScreen.storyboard in Resources */,
-				AE13EC721CA77D9D0044A5FB /* Assets.xcassets in Resources */,
-				AE13EC701CA77D9D0044A5FB /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AE13EC771CA77D9D0044A5FB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AE13EC821CA77D9D0044A5FB /* Assets.xcassets in Resources */,
-				AE13EC801CA77D9D0044A5FB /* Interface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AE13EC861CA77D9D0044A5FB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AE13EC981CA77D9D0044A5FB /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		AE13EC631CA77D9D0044A5FB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AE13ECA81CA781210044A5FB /* ViewCell.swift in Sources */,
-				AE13ECAA1CA78A560044A5FB /* ManageDevicesViewController.swift in Sources */,
-				AE13ECAD1CA79BDA0044A5FB /* HomeIoT.xcdatamodeld in Sources */,
-				AE13ECF31CA97A170044A5FB /* DeviceDetailsViewController.swift in Sources */,
-				AE13EC6D1CA77D9D0044A5FB /* ViewController.swift in Sources */,
-				AE13EC6B1CA77D9D0044A5FB /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AE13EC841CA77D9D0044A5FB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AE13EC941CA77D9D0044A5FB /* NotificationController.swift in Sources */,
-				AE13EC921CA77D9D0044A5FB /* ExtensionDelegate.swift in Sources */,
-				AE13EC901CA77D9D0044A5FB /* InterfaceController.swift in Sources */,
-				AE13EC961CA77D9D0044A5FB /* GlanceController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		AE13EC7C1CA77D9D0044A5FB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AE13EC781CA77D9D0044A5FB /* HomeIoT WatchKit App */;
-			targetProxy = AE13EC7B1CA77D9D0044A5FB /* PBXContainerItemProxy */;
-		};
-		AE13EC8B1CA77D9D0044A5FB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AE13EC871CA77D9D0044A5FB /* HomeIoT WatchKit Extension */;
-			targetProxy = AE13EC8A1CA77D9D0044A5FB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		AE13EC6E1CA77D9D0044A5FB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AE13EC6F1CA77D9D0044A5FB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		AE13EC731CA77D9D0044A5FB /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AE13EC741CA77D9D0044A5FB /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		AE13EC7E1CA77D9D0044A5FB /* Interface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AE13EC7F1CA77D9D0044A5FB /* Base */,
-			);
-			name = Interface.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		AE13EC9A1CA77D9D0044A5FB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		AE13EC9B1CA77D9D0044A5FB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		AE13EC9D1CA77D9D0044A5FB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = "HomeIoT WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.iostation.HomeIoT.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.1;
-			};
-			name = Debug;
-		};
-		AE13EC9E1CA77D9D0044A5FB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = "HomeIoT WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.iostation.HomeIoT.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.1;
-			};
-			name = Release;
-		};
-		AE13ECA11CA77D9D0044A5FB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				IBSC_MODULE = HomeIoT_WatchKit_Extension;
-				INFOPLIST_FILE = "HomeIoT WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.iostation.HomeIoT.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.1;
-			};
-			name = Debug;
-		};
-		AE13ECA21CA77D9D0044A5FB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				IBSC_MODULE = HomeIoT_WatchKit_Extension;
-				INFOPLIST_FILE = "HomeIoT WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.iostation.HomeIoT.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.1;
-			};
-			name = Release;
-		};
-		AE13ECA51CA77D9D0044A5FB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = HomeIoT/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.iostation.HomeIoT;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-			};
-			name = Debug;
-		};
-		AE13ECA61CA77D9D0044A5FB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = HomeIoT/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.iostation.HomeIoT;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		AE13EC621CA77D9D0044A5FB /* Build configuration list for PBXProject "HomeIoT" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AE13EC9A1CA77D9D0044A5FB /* Debug */,
-				AE13EC9B1CA77D9D0044A5FB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		AE13EC9C1CA77D9D0044A5FB /* Build configuration list for PBXNativeTarget "HomeIoT WatchKit Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AE13EC9D1CA77D9D0044A5FB /* Debug */,
-				AE13EC9E1CA77D9D0044A5FB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		AE13ECA01CA77D9D0044A5FB /* Build configuration list for PBXNativeTarget "HomeIoT WatchKit App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AE13ECA11CA77D9D0044A5FB /* Debug */,
-				AE13ECA21CA77D9D0044A5FB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		AE13ECA41CA77D9D0044A5FB /* Build configuration list for PBXNativeTarget "HomeIoT" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AE13ECA51CA77D9D0044A5FB /* Debug */,
-				AE13ECA61CA77D9D0044A5FB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		AE13ECAB1CA79BDA0044A5FB /* HomeIoT.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				AE13ECAC1CA79BDA0044A5FB /* HomeIoT.xcdatamodel */,
-			);
-			currentVersion = AE13ECAC1CA79BDA0044A5FB /* HomeIoT.xcdatamodel */;
-			path = HomeIoT.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
-	};
-	rootObject = AE13EC5F1CA77D9D0044A5FB /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>20287A72BFE006676F3FD878</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>25B4DE775979A5C6F8D1E322</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-HomeIoT/Pods-HomeIoT-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>28ACCD5F07BBAC388BE9C36A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-HomeIoT.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-HomeIoT/Pods-HomeIoT.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>317AF217405143EF7B964EEE</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>F1CE95A0325949AF81BF2AD3</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5D3186EFA5A9B953F4303F45</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8E6B88AE5C99212E6AA2FB26</string>
+				<string>28ACCD5F07BBAC388BE9C36A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7DAFEE0945D8C781E32D5E6E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F1CE95A0325949AF81BF2AD3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8E6B88AE5C99212E6AA2FB26</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-HomeIoT.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-HomeIoT/Pods-HomeIoT.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC5E1CA77D9D0044A5FB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>AE13ECAE1CA813990044A5FB</string>
+				<string>AE13EC691CA77D9D0044A5FB</string>
+				<string>AE13EC7D1CA77D9D0044A5FB</string>
+				<string>AE13EC8C1CA77D9D0044A5FB</string>
+				<string>AE13EC681CA77D9D0044A5FB</string>
+				<string>5D3186EFA5A9B953F4303F45</string>
+				<string>317AF217405143EF7B964EEE</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC5F1CA77D9D0044A5FB</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastSwiftUpdateCheck</key>
+				<string>0720</string>
+				<key>LastUpgradeCheck</key>
+				<string>0720</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>Edwin Tam</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>AE13EC661CA77D9D0044A5FB</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.2</string>
+						<key>DevelopmentTeam</key>
+						<string>5B9QVGHR4W</string>
+					</dict>
+					<key>AE13EC781CA77D9D0044A5FB</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.2</string>
+						<key>DevelopmentTeam</key>
+						<string>5B9QVGHR4W</string>
+					</dict>
+					<key>AE13EC871CA77D9D0044A5FB</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.2</string>
+						<key>DevelopmentTeam</key>
+						<string>5B9QVGHR4W</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>AE13EC621CA77D9D0044A5FB</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+				<string>Base</string>
+			</array>
+			<key>mainGroup</key>
+			<string>AE13EC5E1CA77D9D0044A5FB</string>
+			<key>productRefGroup</key>
+			<string>AE13EC681CA77D9D0044A5FB</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>AE13EC661CA77D9D0044A5FB</string>
+				<string>AE13EC781CA77D9D0044A5FB</string>
+				<string>AE13EC871CA77D9D0044A5FB</string>
+			</array>
+		</dict>
+		<key>AE13EC621CA77D9D0044A5FB</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>AE13EC9A1CA77D9D0044A5FB</string>
+				<string>AE13EC9B1CA77D9D0044A5FB</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>AE13EC631CA77D9D0044A5FB</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>AE13ECA81CA781210044A5FB</string>
+				<string>AE13ECAA1CA78A560044A5FB</string>
+				<string>AE13ECAD1CA79BDA0044A5FB</string>
+				<string>AE13ECF31CA97A170044A5FB</string>
+				<string>AE13EC6D1CA77D9D0044A5FB</string>
+				<string>AE13EC6B1CA77D9D0044A5FB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>AE13EC641CA77D9D0044A5FB</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>AE13ECAF1CA813990044A5FB</string>
+				<string>7DAFEE0945D8C781E32D5E6E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>AE13EC651CA77D9D0044A5FB</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>AE13EC751CA77D9D0044A5FB</string>
+				<string>AE13EC721CA77D9D0044A5FB</string>
+				<string>AE13EC701CA77D9D0044A5FB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>AE13EC661CA77D9D0044A5FB</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>AE13ECA41CA77D9D0044A5FB</string>
+			<key>buildPhases</key>
+			<array>
+				<string>20287A72BFE006676F3FD878</string>
+				<string>AE13EC631CA77D9D0044A5FB</string>
+				<string>AE13EC641CA77D9D0044A5FB</string>
+				<string>AE13EC651CA77D9D0044A5FB</string>
+				<string>AE13ECA31CA77D9D0044A5FB</string>
+				<string>25B4DE775979A5C6F8D1E322</string>
+				<string>E9E7A13F367E152A0F14951B</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>AE13EC7C1CA77D9D0044A5FB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>HomeIoT</string>
+			<key>productName</key>
+			<string>HomeIoT</string>
+			<key>productReference</key>
+			<string>AE13EC671CA77D9D0044A5FB</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>AE13EC671CA77D9D0044A5FB</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>HomeIoT.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>AE13EC681CA77D9D0044A5FB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>AE13EC671CA77D9D0044A5FB</string>
+				<string>AE13EC791CA77D9D0044A5FB</string>
+				<string>AE13EC881CA77D9D0044A5FB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC691CA77D9D0044A5FB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>AE13EC6A1CA77D9D0044A5FB</string>
+				<string>AE13EC6C1CA77D9D0044A5FB</string>
+				<string>AE13ECA91CA78A560044A5FB</string>
+				<string>AE13ECF21CA97A170044A5FB</string>
+				<string>AE13ECA71CA781210044A5FB</string>
+				<string>AE13EC6E1CA77D9D0044A5FB</string>
+				<string>AE13EC711CA77D9D0044A5FB</string>
+				<string>AE13EC731CA77D9D0044A5FB</string>
+				<string>AE13EC761CA77D9D0044A5FB</string>
+				<string>AE13ECAB1CA79BDA0044A5FB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>HomeIoT</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC6A1CA77D9D0044A5FB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AppDelegate.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC6B1CA77D9D0044A5FB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AE13EC6A1CA77D9D0044A5FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AE13EC6C1CA77D9D0044A5FB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC6D1CA77D9D0044A5FB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AE13EC6C1CA77D9D0044A5FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AE13EC6E1CA77D9D0044A5FB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>AE13EC6F1CA77D9D0044A5FB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC6F1CA77D9D0044A5FB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC701CA77D9D0044A5FB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AE13EC6E1CA77D9D0044A5FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AE13EC711CA77D9D0044A5FB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Assets.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC721CA77D9D0044A5FB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AE13EC711CA77D9D0044A5FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AE13EC731CA77D9D0044A5FB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>AE13EC741CA77D9D0044A5FB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>LaunchScreen.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC741CA77D9D0044A5FB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/LaunchScreen.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC751CA77D9D0044A5FB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AE13EC731CA77D9D0044A5FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AE13EC761CA77D9D0044A5FB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC771CA77D9D0044A5FB</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>AE13EC821CA77D9D0044A5FB</string>
+				<string>AE13EC801CA77D9D0044A5FB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>AE13EC781CA77D9D0044A5FB</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>AE13ECA01CA77D9D0044A5FB</string>
+			<key>buildPhases</key>
+			<array>
+				<string>AE13EC771CA77D9D0044A5FB</string>
+				<string>AE13EC9F1CA77D9D0044A5FB</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>AE13EC8B1CA77D9D0044A5FB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>HomeIoT WatchKit App</string>
+			<key>productName</key>
+			<string>HomeIoT WatchKit App</string>
+			<key>productReference</key>
+			<string>AE13EC791CA77D9D0044A5FB</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application.watchapp2</string>
+		</dict>
+		<key>AE13EC791CA77D9D0044A5FB</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>HomeIoT WatchKit App.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>AE13EC7A1CA77D9D0044A5FB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AE13EC791CA77D9D0044A5FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AE13EC7B1CA77D9D0044A5FB</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>AE13EC5F1CA77D9D0044A5FB</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>AE13EC781CA77D9D0044A5FB</string>
+			<key>remoteInfo</key>
+			<string>HomeIoT WatchKit App</string>
+		</dict>
+		<key>AE13EC7C1CA77D9D0044A5FB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>AE13EC781CA77D9D0044A5FB</string>
+			<key>targetProxy</key>
+			<string>AE13EC7B1CA77D9D0044A5FB</string>
+		</dict>
+		<key>AE13EC7D1CA77D9D0044A5FB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>AE13EC7E1CA77D9D0044A5FB</string>
+				<string>AE13EC811CA77D9D0044A5FB</string>
+				<string>AE13EC831CA77D9D0044A5FB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>HomeIoT WatchKit App</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC7E1CA77D9D0044A5FB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>AE13EC7F1CA77D9D0044A5FB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>Interface.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC7F1CA77D9D0044A5FB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/Interface.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC801CA77D9D0044A5FB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AE13EC7E1CA77D9D0044A5FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AE13EC811CA77D9D0044A5FB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Assets.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC821CA77D9D0044A5FB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AE13EC811CA77D9D0044A5FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AE13EC831CA77D9D0044A5FB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC841CA77D9D0044A5FB</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>AE13EC941CA77D9D0044A5FB</string>
+				<string>AE13EC921CA77D9D0044A5FB</string>
+				<string>AE13EC901CA77D9D0044A5FB</string>
+				<string>AE13EC961CA77D9D0044A5FB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>AE13EC851CA77D9D0044A5FB</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>AE13EC861CA77D9D0044A5FB</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>AE13EC981CA77D9D0044A5FB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>AE13EC871CA77D9D0044A5FB</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>AE13EC9C1CA77D9D0044A5FB</string>
+			<key>buildPhases</key>
+			<array>
+				<string>AE13EC841CA77D9D0044A5FB</string>
+				<string>AE13EC851CA77D9D0044A5FB</string>
+				<string>AE13EC861CA77D9D0044A5FB</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>HomeIoT WatchKit Extension</string>
+			<key>productName</key>
+			<string>HomeIoT WatchKit Extension</string>
+			<key>productReference</key>
+			<string>AE13EC881CA77D9D0044A5FB</string>
+			<key>productType</key>
+			<string>com.apple.product-type.watchkit2-extension</string>
+		</dict>
+		<key>AE13EC881CA77D9D0044A5FB</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.app-extension</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>HomeIoT WatchKit Extension.appex</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>AE13EC891CA77D9D0044A5FB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AE13EC881CA77D9D0044A5FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>RemoveHeadersOnCopy</string>
+				</array>
+			</dict>
+		</dict>
+		<key>AE13EC8A1CA77D9D0044A5FB</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>AE13EC5F1CA77D9D0044A5FB</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>AE13EC871CA77D9D0044A5FB</string>
+			<key>remoteInfo</key>
+			<string>HomeIoT WatchKit Extension</string>
+		</dict>
+		<key>AE13EC8B1CA77D9D0044A5FB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>AE13EC871CA77D9D0044A5FB</string>
+			<key>targetProxy</key>
+			<string>AE13EC8A1CA77D9D0044A5FB</string>
+		</dict>
+		<key>AE13EC8C1CA77D9D0044A5FB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>AE13EC8F1CA77D9D0044A5FB</string>
+				<string>AE13EC911CA77D9D0044A5FB</string>
+				<string>AE13EC931CA77D9D0044A5FB</string>
+				<string>AE13EC951CA77D9D0044A5FB</string>
+				<string>AE13EC971CA77D9D0044A5FB</string>
+				<string>AE13EC991CA77D9D0044A5FB</string>
+				<string>AE13EC8D1CA77D9D0044A5FB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>HomeIoT WatchKit Extension</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC8D1CA77D9D0044A5FB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>AE13EC8E1CA77D9D0044A5FB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC8E1CA77D9D0044A5FB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>path</key>
+			<string>PushNotificationPayload.apns</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC8F1CA77D9D0044A5FB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>InterfaceController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC901CA77D9D0044A5FB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AE13EC8F1CA77D9D0044A5FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AE13EC911CA77D9D0044A5FB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ExtensionDelegate.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC921CA77D9D0044A5FB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AE13EC911CA77D9D0044A5FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AE13EC931CA77D9D0044A5FB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>NotificationController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC941CA77D9D0044A5FB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AE13EC931CA77D9D0044A5FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AE13EC951CA77D9D0044A5FB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>GlanceController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC961CA77D9D0044A5FB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AE13EC951CA77D9D0044A5FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AE13EC971CA77D9D0044A5FB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Assets.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC981CA77D9D0044A5FB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AE13EC971CA77D9D0044A5FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AE13EC991CA77D9D0044A5FB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13EC9A1CA77D9D0044A5FB</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>ENABLE_TESTABILITY</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.2</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>AE13EC9B1CA77D9D0044A5FB</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.2</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>AE13EC9C1CA77D9D0044A5FB</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>AE13EC9D1CA77D9D0044A5FB</string>
+				<string>AE13EC9E1CA77D9D0044A5FB</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>AE13EC9D1CA77D9D0044A5FB</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>INFOPLIST_FILE</key>
+				<string>HomeIoT WatchKit Extension/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.iostation.HomeIoT.watchkitapp.watchkitextension</string>
+				<key>PRODUCT_NAME</key>
+				<string>${TARGET_NAME}</string>
+				<key>SDKROOT</key>
+				<string>watchos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>4</string>
+				<key>WATCHOS_DEPLOYMENT_TARGET</key>
+				<string>2.1</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>AE13EC9E1CA77D9D0044A5FB</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>INFOPLIST_FILE</key>
+				<string>HomeIoT WatchKit Extension/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.iostation.HomeIoT.watchkitapp.watchkitextension</string>
+				<key>PRODUCT_NAME</key>
+				<string>${TARGET_NAME}</string>
+				<key>SDKROOT</key>
+				<string>watchos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>4</string>
+				<key>WATCHOS_DEPLOYMENT_TARGET</key>
+				<string>2.1</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>AE13EC9F1CA77D9D0044A5FB</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>dstPath</key>
+			<string></string>
+			<key>dstSubfolderSpec</key>
+			<string>13</string>
+			<key>files</key>
+			<array>
+				<string>AE13EC891CA77D9D0044A5FB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXCopyFilesBuildPhase</string>
+			<key>name</key>
+			<string>Embed App Extensions</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>AE13ECA01CA77D9D0044A5FB</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>AE13ECA11CA77D9D0044A5FB</string>
+				<string>AE13ECA21CA77D9D0044A5FB</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>AE13ECA11CA77D9D0044A5FB</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>EMBEDDED_CONTENT_CONTAINS_SWIFT</key>
+				<string>YES</string>
+				<key>IBSC_MODULE</key>
+				<string>HomeIoT_WatchKit_Extension</string>
+				<key>INFOPLIST_FILE</key>
+				<string>HomeIoT WatchKit App/Info.plist</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.iostation.HomeIoT.watchkitapp</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>watchos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>4</string>
+				<key>WATCHOS_DEPLOYMENT_TARGET</key>
+				<string>2.1</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>AE13ECA21CA77D9D0044A5FB</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>EMBEDDED_CONTENT_CONTAINS_SWIFT</key>
+				<string>YES</string>
+				<key>IBSC_MODULE</key>
+				<string>HomeIoT_WatchKit_Extension</string>
+				<key>INFOPLIST_FILE</key>
+				<string>HomeIoT WatchKit App/Info.plist</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.iostation.HomeIoT.watchkitapp</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>watchos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>4</string>
+				<key>WATCHOS_DEPLOYMENT_TARGET</key>
+				<string>2.1</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>AE13ECA31CA77D9D0044A5FB</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>dstPath</key>
+			<string>$(CONTENTS_FOLDER_PATH)/Watch</string>
+			<key>dstSubfolderSpec</key>
+			<string>16</string>
+			<key>files</key>
+			<array>
+				<string>AE13EC7A1CA77D9D0044A5FB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXCopyFilesBuildPhase</string>
+			<key>name</key>
+			<string>Embed Watch Content</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>AE13ECA41CA77D9D0044A5FB</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>AE13ECA51CA77D9D0044A5FB</string>
+				<string>AE13ECA61CA77D9D0044A5FB</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>AE13ECA51CA77D9D0044A5FB</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>8E6B88AE5C99212E6AA2FB26</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>INFOPLIST_FILE</key>
+				<string>HomeIoT/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.iostation.HomeIoT</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PROVISIONING_PROFILE</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>AE13ECA61CA77D9D0044A5FB</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>28ACCD5F07BBAC388BE9C36A</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>INFOPLIST_FILE</key>
+				<string>HomeIoT/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.iostation.HomeIoT</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PROVISIONING_PROFILE</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>AE13ECA71CA781210044A5FB</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ViewCell.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13ECA81CA781210044A5FB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AE13ECA71CA781210044A5FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AE13ECA91CA78A560044A5FB</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ManageDevicesViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13ECAA1CA78A560044A5FB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AE13ECA91CA78A560044A5FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AE13ECAB1CA79BDA0044A5FB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>AE13ECAC1CA79BDA0044A5FB</string>
+			</array>
+			<key>currentVersion</key>
+			<string>AE13ECAC1CA79BDA0044A5FB</string>
+			<key>isa</key>
+			<string>XCVersionGroup</string>
+			<key>path</key>
+			<string>HomeIoT.xcdatamodeld</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+			<key>versionGroupType</key>
+			<string>wrapper.xcdatamodel</string>
+		</dict>
+		<key>AE13ECAC1CA79BDA0044A5FB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.xcdatamodel</string>
+			<key>path</key>
+			<string>HomeIoT.xcdatamodel</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13ECAD1CA79BDA0044A5FB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AE13ECAB1CA79BDA0044A5FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AE13ECAE1CA813990044A5FB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>CoreData.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/CoreData.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>AE13ECAF1CA813990044A5FB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AE13ECAE1CA813990044A5FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AE13ECF21CA97A170044A5FB</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DeviceDetailsViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE13ECF31CA97A170044A5FB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AE13ECF21CA97A170044A5FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E9E7A13F367E152A0F14951B</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-HomeIoT/Pods-HomeIoT-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>F1CE95A0325949AF81BF2AD3</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_HomeIoT.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>AE13EC5F1CA77D9D0044A5FB</string>
+</dict>
+</plist>
