@@ -32,7 +32,7 @@
 #define FAST 125
 #define SLOW 500
 
-#define VREF 566
+#define VREF 428
 
 #define SEMI_AUTOMATIC
 #define TESTING
@@ -94,15 +94,14 @@ void callback(char* topic, byte* payload, unsigned int length) {
         fanOn();
     } else if (stopic.endsWith("/fanoff")) {
         fanOff();
-    } else if (stopic.endsWith("/measure")) {
+    } else if (stopic.endsWith("/fastmeasure")) {
         measureAQI(false);
-    } else if (stopic.endsWith("/slowmeasure")) {
+    } else if (stopic.endsWith("/measure")) {
         measureAQI(true);
     } else if (stopic.endsWith("/calibrate")) {
-#ifdef TESTING
-    Serial.println("Calibration");
-#endif
         calAQI();
+    } else if (stopic.endsWith("/temperature")) {
+        measureTemperature();
     }
 
 }
@@ -155,6 +154,18 @@ void fanOff() {
     digitalWrite(FAN, LOW);
 }
 
+void measureTemperature() {
+    float tp, rh = 0.0;
+    char sv[128];
+
+    // Measure RH
+    rh = round(thsensor.getRH()*100.0)/100.0;
+    // Measure Temperature
+    tp = round(thsensor.getTemp()*100.0)/100.0;
+    sprintf(sv, "{\"temperature\":%.2f,\"humidity\":%.2f}", tp, rh);
+    client.publish("sensornet/aqi/AQI01/temperature",sv);
+}
+
 void measureAQI(bool slow) {
     int v, aqi = 0;
     char sv[128];
@@ -174,8 +185,8 @@ void measureAQI(bool slow) {
     tp = round(thsensor.getTemp()*100.0)/100.0;
     pm25 = vToPM25(v, tp, rh);
     aqi = calculateAirQualityIndex(pm25);
-    sprintf(sv, "{'value':%d,'pm2.5':%.3f,'aqi':%d,'temperature':%.2f,'humidity':%.2f}", v, pm25, aqi, tp, rh);
-    client.publish("sensornet/aqi/AQI01/value",sv);
+    sprintf(sv, "{\"value\":%d,\"pm25\":%.3f,\"aqi\":%d,\"temperature\":%.2f,\"humidity\":%.2f}", v, pm25, aqi, tp, rh);
+    client.publish("sensornet/aqi/AQI01/allvalues",sv);
 }
 
 
@@ -188,7 +199,7 @@ void calAQI() {
     Serial.println(v);
 #endif
     sprintf(sv, "%d", v);
-    client.publish("sensornet/aqi/AQI01/calibrate",sv);
+    client.publish("sensornet/aqi/AQI01/calvalues",sv);
 }
 
 void setMqtt()
