@@ -1,0 +1,302 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <title>Environment Concole</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/jq/mobile/jquery.mobile-1.4.5.min.css" />
+<link rel="stylesheet" href="/css/themes/greenie.css" />
+<link rel="stylesheet" href="/css/themes/jquery.mobile.icons.min.css" />
+<style>
+@media ( min-width: 30em ) {
+    /* Show the table header rows and set all cells to display: table-cell */
+    .sensor-list td,
+    .sensor-list th,
+    .sensor-list tbody th,
+    .sensor-list tbody td {
+        display: table-cell;
+        margin: 0;
+    }
+    /* Hide the labels in each cell */
+    .sensor-list thead td,
+    .sensor-list thead th,
+    .sensor-list td .ui-table-cell-label,
+    .sensor-list th .ui-table-cell-label {
+        display: none;
+    }
+    .sensor-list td,
+    .sensor-list tbody td {
+        padding-top: 16px;
+    }
+}
+
+tr {
+    border-bottom: 1px solid #d6d6d6;
+}
+
+
+#point { position:relative; -moz-animation:mymove 1s ease infinite; -webkit-animation:mymove 1s ease infinite; padding-left:1px; padding-right:1px; }
+
+@-webkit-keyframes mymove 
+{
+0% {opacity:1.0; text-shadow:0 0 20px #00c6ff;}
+50% {opacity:0; text-shadow:none; }
+100% {opacity:1.0; text-shadow:0 0 20px #00c6ff; }  
+}
+
+
+@-moz-keyframes mymove 
+{
+0% {opacity:1.0; text-shadow:0 0 20px #00c6ff;}
+50% {opacity:0; text-shadow:none; }
+100% {opacity:1.0; text-shadow:0 0 20px #00c6ff; }  
+}
+
+</style>
+<script src="/jq/jquery-2.1.4.min.js"></script>
+<script src="/jq/mobile/jquery.mobile-1.4.5.min.js"></script>
+<script>
+(function($) {
+    $(document).ready(function() {
+
+        var $cbtemp = $("#btemp");
+        var $cbhumi = $("#bhumi");
+        var $crtemp = $("#rtemp");
+        var $crhumi = $("#rhumi");
+        var $cmtemp = $("#mtemp");
+        var $cmhumi = $("#mhumi");
+        var $caqi01pm25 = $("#aqi01pm25");
+        var $caqi01aqi = $("#aqi01aqi");
+        var $rlupdate = $("#rlupdate");
+        var $blupdate = $("#blupdate");
+        var $mlupdate = $("#mlupdate");
+        var $aqilupdate = $("#aqilupdate");
+        var read_sensors = function() {
+            $.getJSON("/nodes/sense2", function(data) {
+                var vbtemp = Math.round(data.balcony.temperature);
+                var vbhumi = Math.round(data.balcony.humidity);
+                $cbtemp.html(vbtemp);
+                $cbhumi.html(vbhumi);
+                $crtemp.html(Math.round(data.living.temperature));
+                $crhumi.html(Math.round(data.living.humidity));
+                $cmtemp.html(Math.round(data.masterbed.temperature));
+                $cmhumi.html(Math.round(data.masterbed.humidity));
+                var pm25 = Math.round(data.aqi.pm25);
+                var aqi = Math.round(data.aqi.aqi);
+                $caqi01pm25.html(pm25);
+                $caqi01aqi.html(aqi);
+                var blupdt = new Date(data.balcony.lastUpdate);
+                var rlupdt = new Date(data.living.lastUpdate);
+                var mlupdt = new Date(data.masterbed.lastUpdate);
+                var aqilupdt = new Date(data.aqi.lastUpdate);
+                var noww = new Date();
+                var rdupdt = noww - rlupdt; // difference (Living Room)
+                var bdupdt = noww - blupdt; // difference (Balcony)
+                var mdupdt = noww - mlupdt; // difference (Master Bedroom)
+                var aqidupdt = noww - aqilupdt; // difference (Master Bedroom)
+                var rmupdt = parseInt(rdupdt/1000/60);
+                var bmupdt = parseInt(bdupdt/1000/60);
+                var mmupdt = parseInt(mdupdt/1000/60);
+                var aqimupdt = parseInt(aqidupdt/1000/60);
+                $rlupdate.html(rmupdt+"m ago");
+                $blupdate.html(bmupdt+"m ago");
+                $mlupdate.html(mmupdt+"m ago");
+                $aqilupdate.html(aqimupdt+"m");
+                if (rmupdt>30) {
+                    $crtemp.html("--");
+                    $crtemp.humi("--");
+                    $rlupdate.html("FAIL");
+                }
+                if (bmupdt>30) {
+                    $cbtemp.html("--");
+                    $cbhumi.html("--");
+                    $blupdate.html("FAIL");
+                }
+                if (mmupdt>30) {
+                    $cmtemp.html("--");
+                    $cmhumi.html("--");
+                    $mlupdate.html("FAIL");
+                }
+                if (aqimupdt > 60) {
+                    $caqi01pm25.html("--");
+                    $caqi01aqi.html("--");
+                    $aqilupdate.html("FAIL");
+                }
+            });
+        };
+        $cbtemp.html("00ºC");
+        $cbhumi.html("00%rh");
+        $crtemp.html("00ºC");
+        $crhumi.html("00%rh");
+        $cmtemp.html("00ºC");
+        $cmhumi.html("00%rh");
+        $caqi01pm25.html("00");
+        $caqi01aqi.html("00");
+        $rlupdate.html("Unknown");
+        $blupdate.html("Unknown");
+        $mlupdate.html("Unknown");
+        $aqilupdate.html("Unknown");
+        read_sensors();
+
+        var tt = $("#aqi01aiq").text();
+        if (tt != "FAIL" || (tt != "--")) {
+            if (tt < 50) {
+                $('.aqi').closest('td').css({"color":"black",
+                "background-color":"#30ff30"});
+            } else if ((50 <= tt) && (tt < 100)) {
+                $('.aqi').closest('td').css({"color":"black",
+                "background-color":"yellow"});
+            } else if ((100 <= tt) && (tt < 200)) {
+                $('.aqi').closest('td').css({"color":"black",
+                "background-color":"orange"});
+            } else if ((200 <= tt) && (tt < 300)) {
+                $('.aqi').closest('td').css({"color":"white",
+                "background-color":"red"});
+            } else if (tt > 300) {
+                $('.aqi').closest('td').css({"color":"white",
+                "background-color":"black"});
+            }
+        } else {
+            $('.aqi').closest('td').css({"color":"white","background-color":"white"});
+        }
+
+
+        // read_switches();
+        // Set default state of control buttons according to their current status
+        var $radios = $('input:radio[name=livingRoomlight]');
+        if($radios.is(':checked') === false) {
+            $radios.filter('[value=1]').prop('checked', true);
+        }
+
+        var refreshId = setInterval(read_sensors, 10000);
+        setInterval( function() {
+            // Create a newDate() object and extract the minutes of the current time on the visitor's
+            var minutes = new Date().getMinutes();
+            // Add a leading zero to the minutes value
+            $("#min").html(( minutes < 10 ? "0" : "" ) + minutes);
+        },1000);
+    
+        setInterval( function() {
+            // Create a newDate() object and extract the hours of the current time on the visitor's
+            var hours = new Date().getHours();
+            // Add a leading zero to the hours value
+            $("#hours").html(( hours < 10 ? "0" : "" ) + hours);
+        }, 1000);
+
+    });
+})(jQuery);
+</script>
+</head>
+
+<body>
+<!-- Start of first page: #one -->
+<div data-role="page" id="one">
+
+    <div data-role="header">
+        <h1>House <span id="hours"></span><span id="point">:</span><span id="min"></span></h1>
+    </div><!-- /header -->
+
+    <div role="main" class="ui-content" >
+    <table data-role="table" class="sensor-list">
+        <thead>
+        <tr>
+            <th>Place</th>
+            <th>Temp</th>
+            <th>%RH</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Balcony</td>
+            <td><font size=11><b><span id="btemp"></span></b></font>ºC</td>
+            <td><font size=6><b><span id="bhumi"></span></b></font>%RH</td>
+            <td class="aqi"><font size=11><b><span id="aqi01aqi"></span></b></font>/<font size=6><b><span id="aqi01pm25"></span></b></font></td>
+        </tr>
+        <tr>
+            <td>Living Room</td>
+            <td><font size=6><b><span id="rtemp"></span></b></font>ºC</td>
+            <td><font size=6><b><span id="rhumi"></span></b></font>%RH</td>
+        </tr>
+        <tr>
+            <td>Master BedRoom</td>
+            <td><font size=6><b><span id="mtemp"></span></b></font>ºC</td>
+            <td><font size=6><b><span id="mhumi"></span></b></font>%RH</td>
+        </tr>
+        </tbody>
+    </table>
+<!--
+    <p>Updated Outdoor <span id="blupdate"></span>, living <span id="rlupdate"></span>, bed <span id="mlupdate"></span></p>
+-->
+<!--        <p><a href="#two" class="ui-btn ui-shadow ui-corner-all">Show page "two"</a></p> -->
+        <p><a href="#popup" class="ui-btn ui-shadow ui-corner-all" data-rel="dialog" data-transition="pop">Control</a></p>
+    </div><!-- /content -->
+
+    <div data-role="footer" data-theme="a">
+        <h4>Home IoT</h4>
+    </div><!-- /footer -->
+</div><!-- /page one -->
+
+<!-- Start of second page: #two -->
+<div data-role="page" id="two" data-theme="a">
+
+    <div data-role="header">
+        <h1>Two</h1>
+    </div><!-- /header -->
+
+    <div role="main" class="ui-content">
+        <h2>Two</h2>
+        <p>I have an id of "two" on my page container. I'm the second page container in this multi-page template.</p>
+        <p>Notice that the theme is different for this page because we've added a few <code>data-theme</code> swatch assigments here to show off how flexible it is. You can add any content or widget to these pages, but we're keeping these simple.</p>
+        <p><a href="#one" data-direction="reverse" class="ui-btn ui-shadow ui-corner-all ui-btn-b">Back to page "one"</a></p>
+
+    </div><!-- /content -->
+
+    <div data-role="footer">
+        <h4>Home IoT</h4>
+    </div><!-- /footer -->
+</div><!-- /page two -->
+
+<!-- Start of third page: #popup -->
+<div data-role="page" id="popup">
+
+    <div data-role="header" data-theme="b">
+        <h1>Screens and Lights</h1>
+    </div><!-- /header -->
+
+    <div role="main" class="ui-content">
+        <p><b>Controls screens and lights</b></p>
+<form>
+    <table data-role="table" class="sensor-list">
+        <thead>
+        <tr>
+            <th>Display</th>
+            <th>Set</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Living Room</td>
+            <td>
+    <fieldset data-role="controlgroup" data-type="horizontal">
+        <input type="radio" name="livingRoomlight" id="livingRoomLight-a" value="0">
+        <label for="livingRoomLight-a">Off</label>
+        <input type="radio" name="livingRoomlight" id="livingRoomLight-b" value="1">
+        <label for="livingRoomLight-b">Auto</label>
+<!--
+        <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2c" value="other">
+        <label for="radio-choice-h-2c">Three</label>
+-->
+    </fieldset>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+    <p><a href="#one" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-icon-back ui-btn-icon-left">Back to Main</a></p>
+    </div><!-- /content -->
+
+    <div data-role="footer">
+        <h4>Home IoT</h4>
+    </div><!-- /footer -->
+</div><!-- /page popup -->
+</body>
+</html>

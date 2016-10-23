@@ -5,6 +5,8 @@
 # Icon must end with two \r
 Icon
 
+# binaries
+*.bin
 
 # Thumbnails
 ._*

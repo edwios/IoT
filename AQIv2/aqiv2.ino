@@ -1,6 +1,3 @@
-// This #include statement was automatically added by the Particle IDE.
-#include "si7021.h"
-
 /*
  * This is copyrighted materials by ioStation Ltd.
  * All rights reserved.
@@ -14,6 +11,7 @@
  */
 
 // This #include statement was automatically added by the Particle IDE.
+
 #include "application.h"
 #include "MQTT/MQTT.h"
 #include "si7021.h"
@@ -22,20 +20,20 @@
 
 
 #define CLIENT_NAME "AQI01"
-#define RECONNECT 15*1000
-
+#define NOWIFITIMEOUT 30000
+#define PERIOD 900
 
 #define FAN D3
 #define VLED D4
 #define Vo  A0
 
-#define FAST 125
-#define SLOW 500
-
 #define VREF 428
 
 #define SEMI_AUTOMATIC
-#define TESTING
+#undef TESTING
+
+SYSTEM_THREAD(ENABLED);
+SYSTEM_MODE(MANUAL);
 
 const float concentrationBoundaries[7][2] =
 {
@@ -79,6 +77,10 @@ bool init = true;
 // received command
 char cmd[8];
 
+void callback(char* topic, byte* payload, unsigned int length) {
+}
+
+/*
 // recieve message
 void callback(char* topic, byte* payload, unsigned int length) {
     char p[length + 1];
@@ -105,6 +107,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
     }
 
 }
+*/
 
 #ifdef HMILCD
 void sendToLCD(uint8_t type,String index, String cmd)
@@ -171,14 +174,11 @@ void measureAQI(bool slow) {
     char sv[128];
     float pm25, tp, rh = 0.0;
     
-    fanOn();
-    delay(3000);
     if (slow) {
         v = slowReadSensor();
     } else {
         v = readSensor();
     }
-    fanOff();
     // Measure RH
     rh = round(thsensor.getRH()*100.0)/100.0;
     // Measure Temperature
@@ -206,11 +206,9 @@ void setMqtt()
 {
     if (client.isConnected()) {
         client.publish("sensornet/status/AQI01","ready");
-        client.subscribe("sensornet/AQI01/#");
         RGB.control(true);
         RGB.color(0,255,0);
         ledTimer = millis();
-        d7Rate = SLOW;
     }
 }
 
@@ -319,32 +317,24 @@ int calculateAirQualityIndex(float pm25)
     return (int)(((iHigh - iLow)/(cHigh - cLow)) * (pm25 - cLow)) + iLow;
 }
 
-#ifdef SEMI_AUTOMATIC
-SYSTEM_MODE(MANUAL);
-#endif
 
 void setup()
 {
     Time.zone(+8);
-    pinMode(D7,OUTPUT);
     pinMode(FAN, OUTPUT);
     pinMode(VLED, OUTPUT);
     digitalWrite(VLED, HIGH);
+    WiFi.on();
+    WiFi.connect();
+    waitFor(WiFi.ready, NOWIFITIMEOUT);
+
     fanOff();
     setADCSampleTime(ADC_SampleTime_3Cycles);
-    d7Rate = SLOW;
-#ifdef SEMI_AUTOMATIC
-    WiFi.on();
-    digitalWrite(D7,HIGH);
-    delay(500);
-    WiFi.connect();
-    digitalWrite(D7,LOW);
-    delay(500);
-    digitalWrite(D7,HIGH);
-#endif
-    Serial.begin(9600);
     thsensor.begin();
-    digitalWrite(D7,LOW);
+    client.connect(CLIENT_NAME);
+    delay(500);
+    setMqtt();
+    lastConnect = millis();
 }
 
 
@@ -352,61 +342,21 @@ void setup()
 
 void loop()
 {
-    // Maintain connection
-
-    if (millis() - ledTimer > 3500) {
-        ledTimer = millis();
-        RGB.control(false);
-        d7Rate = SLOW;
-    }
-    
-    if (WiFi.ready() && init) {
-        // connect to the server
+    if (client.isConnected()) {
+        fanOn();
+        delay(7000);
+        measureTemperature();
+        measureAQI(true);
+        fanOff();
+        System.sleep(SLEEP_MODE_DEEP, PERIOD);
+    } else {
         client.connect(CLIENT_NAME);
         delay(500);
-        // publish/subscribe
         setMqtt();
-        delay(200);
-        init = false;
-    }
-    
-    // Flash D7 according to the statue (controlled by d7Rate)
-    if (millis() - d7Timer > d7Rate) {
-        d7Timer = millis();
-        if (d7On) {
-            digitalWrite(D7,LOW);
-        } else {
-            digitalWrite(D7,HIGH);
-        }
-        d7On = !d7On;
-
-        if (client.isConnected()) {
-            client.loop();
-        } else if (WiFi.ready()) {
-            RGB.control(true);
-            RGB.color(255,0,0);
-            d7Rate = FAST;
-            ledTimer = millis();
-            if (millis() - lastConnect > RECONNECT) {
-                lastConnect = millis();
-
-                RGB.color(40,0,0);
-                WiFi.off();
-                digitalWrite(D7, HIGH);
-                delay(1000);
-                WiFi.on();
-                RGB.color(255,255,0);
-                delay(500);
-                WiFi.connect();
-                RGB.color(0,0,255);
-                delay(500);
-                digitalWrite(D7,LOW);
-                init = true;
-            }
-        } else {
-            RGB.control(true);
-            RGB.color(255,0,255);
-            ledTimer = millis();
+        if (millis() - lastConnect > NOWIFITIMEOUT) {
+            // WiFi no good, next time
+            System.sleep(SLEEP_MODE_DEEP, PERIOD);
         }
     }
+    delay(5000);
 }
