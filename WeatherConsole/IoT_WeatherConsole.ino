@@ -47,6 +47,7 @@ SYSTEM_MODE(MANUAL);
 #define TP_STATUS   "sensornet/status/envconsole01"
 #define TP_DATESTR "sensornet/time/shortdate"
 #define TP_TIMESTR "sensornet/time/shorttime"
+#define TP_UNIXTIME "sensornet/time/timestamp"
 
 #define ARMED    "ARMED"
 #define DISARMED   "DISARMED"
@@ -125,7 +126,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
     String m;
     String tp = String(topic);
     
-    m.reserve(10);
+    m.reserve(20);
     memcpy(p, payload, length);
     p[length] = NULL;
     m = String(p);
@@ -175,13 +176,22 @@ void callback(char* topic, byte* payload, unsigned int length) {
         dateStr = m;
     } else if (tp.equals(TP_TIMESTR)) {
         timeStr = m;
+    } else if (tp.equals(TP_UNIXTIME)) {
+        char cTime[10];
+        
+        String n = m.substring(0,10);
+        uint32_t t = n.toInt();
+        Time.setTime(t);
+        sprintf(cTime, "%02d:%02d:%02d", Time.hour(), Time.minute(), Time.second());
+        timeStr = String(cTime);
+        dateStr = Time.format(Time.now(),"%h %d");
     }
     updateAll();
 }
 
 void updateAll()
 {
-    // updateBkgPict();
+    updateBkgPict();
     sendToLCD(LCD_TEXT,INDOORTEMPFIELD,livtemp);
     sendToLCD(LCD_TEXT,INDOORHUMIFIELD,livhumi);
     sendToLCD(LCD_TEXT,OUTDOORHUMIFIELD,balhumi);
@@ -280,8 +290,7 @@ void setMqtt(void)
     client.subscribe(TP_HOME);
     client.subscribe(TP_HOME_ALARM);
     client.subscribe(TP_COMMAND);
-    client.subscribe(TP_DATESTR);
-    client.subscribe(TP_TIMESTR);
+    client.subscribe(TP_UNIXTIME);
 }
 
 bool updateBkgPict(void)
